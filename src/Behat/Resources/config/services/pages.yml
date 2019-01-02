@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    public: true
+
+  app.behat.page:
+    class: FriendsOfBehat\PageObjectExtension\Page\Page
+    abstract: true
+    public: false
+    arguments:
+      - '@mink.default_session'
+      - '%__behat__.mink.parameters%'
+
+  app.behat.symfony_page:
+    class: FriendsOfBehat\PageObjectExtension\Page\SymfonyPage
+    parent: 'app.behat.page'
+    abstract: true
+    public: false
+    arguments:
+      - '@__symfony_shared__.router'
+
+  app.behat.page.test:
+    class: App\Behat\Page\TestPage
+    parent: 'app.behat.symfony_page'
+    public: false

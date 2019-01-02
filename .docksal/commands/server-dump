@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Starts server dump collector
+##
+## Usage: fin server-dump
+
+fin exec bin/console server:dump

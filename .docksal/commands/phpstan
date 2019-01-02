@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Runs phpstan check on src folder with max level
+##
+## Usage: fin phpstan
+
+fin exec vendor/bin/phpstan analyse -c phpstan.neon -l max src

@@ -1,0 +1,21 @@
+imports:
+  - { resource: services/contexts.yml }
+  - { resource: services/pages.yml }
+
+services:
+  _defaults:
+    public: true
+
+  mink.default_session:
+    class: Behat\Mink\Session
+    lazy: true
+    public: false
+    factory: ['@__behat__.mink', getSession]
+
+  app.behat.shared_storage:
+    class: App\Behat\Service\SharedStorage
+    public: false
+    calls:
+      - method: setClipboard
+        arguments:
+          - { "contextCount" : 0 }

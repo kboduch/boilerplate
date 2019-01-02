@@ -1,0 +1,34 @@
+services:
+  _defaults:
+    public: true
+
+  app.behat.context.hook.doctrine_orm:
+    tags: [{ name: fob.context_service}]
+    class: App\Behat\Context\Hook\DoctrineORMContext
+    arguments:
+      - '@app.behat.shared_storage'
+
+  app.behat.context.transform.test:
+    tags: [{ name: fob.context_service}]
+    class: App\Behat\Context\Transform\Test
+    arguments:
+      - '@app.behat.shared_storage'
+
+  app.behat.context.setup.test:
+    tags: [{ name: fob.context_service}]
+    class: App\Behat\Context\Setup\Test
+    arguments:
+      - '@app.behat.shared_storage'
+
+  app.behat.context.ui.test:
+    tags: [{ name: fob.context_service}]
+    class: App\Behat\Context\Ui\Test
+    arguments:
+      - '@app.behat.shared_storage'
+      - '@app.behat.page.test'
+
+  app.behat.context.api.test:
+    tags: [{ name: fob.context_service}]
+    class: App\Behat\Context\Api\Test
+    arguments:
+      - '@app.behat.shared_storage'

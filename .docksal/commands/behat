@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Runs behat [behat args]
+##
+## Usage: fin behat
+
+fin exec vendor/bin/behat --config behat.yml.dist "$@"

@@ -1,0 +1,12 @@
+default:
+  suites:
+    ui_behat_testing:
+      contexts_services:
+        - app.behat.context.hook.doctrine_orm
+        - app.behat.context.transform.test
+        - app.behat.context.setup.test
+        - app.behat.context.ui.test
+        - app.behat.context.api.test
+
+      filters:
+        tags: "@behat_test && @ui"

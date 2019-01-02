@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+## Runs easy coding standard check on src dir (add --fix to fix)
+##
+## Usage: fin ecs [ecs params to pass through]
+## fin ecs
+## fin ecs --clear-cache
+## fin ecs --fix
+
+fin exec vendor/bin/ecs check --ansi src "$@"

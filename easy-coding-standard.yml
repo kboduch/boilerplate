@@ -1,0 +1,8 @@
+imports:
+    #TODO compare symfony with sylius ecs then clean code (order matters)
+    - { resource: 'vendor/symplify/easy-coding-standard/config/symfony.yml' }
+    - { resource: 'vendor/sylius-labs/coding-standard/easy-coding-standard.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/clean-code.yml' }
+
+services:
+    PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: ~

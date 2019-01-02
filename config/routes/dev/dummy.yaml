@@ -1,0 +1,7 @@
+dummy:
+  path: /
+  controller: App\Controller\DummyController::indexAction
+
+test_page:
+  path: /testowo-page
+  controller: App\Controller\DummyController::testPageAction

@@ -1,0 +1,20 @@
+version: "2.1"
+
+services:
+  cli:
+    environment:
+      - PHP_IDE_CONFIG=serverName=${VIRTUAL_HOST}
+    ports:
+      - "2223:22"
+
+  blackfire:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: blackfire
+
+  browser:
+    hostname: browser
+    image: selenium/standalone-chrome
+    dns:
+      - ${DOCKSAL_DNS1}
+      - ${DOCKSAL_DNS2}

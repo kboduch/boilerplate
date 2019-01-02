@@ -1,0 +1,58 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+default:
+  formatters:
+    pretty:
+      verbose: true
+      paths: false
+      snippets: false
+
+  extensions:
+#    Lakion\Behat\MinkDebugExtension:
+#      directory: etc/build
+#      clean_start: false
+#      screenshot: true
+
+    Behat\MinkExtension:
+      files_path: "%paths.base%/src/Behat/Resources/fixtures/"
+      base_url: "http://web"
+      default_session: symfony
+      javascript_session: chrome
+      sessions:
+        symfony:
+          goutte: ~
+        chrome:
+          selenium2:
+            wd_host: http://browser:4444/wd/hub
+            browser: chrome
+            capabilities:
+              browserName: chrome
+              browser: chrome
+              version: ""
+              marionette: null # https://github.com/Behat/MinkExtension/pull/311
+              chrome:
+                switches:
+                  - "start-fullscreen"
+                  - "start-maximized"
+                  - "no-sandbox"
+      show_auto: false
+
+    FriendsOfBehat\SymfonyExtension:
+      env_file: .env.test
+      kernel:
+        class: App\Kernel
+        path: src/Kernel.php
+        bootstrap: ~
+
+    FriendsOfBehat\ContextServiceExtension:
+      imports:
+        - "src/Behat/Resources/config/services.yml"
+
+    FriendsOfBehat\CrossContainerExtension: ~
+
+    FriendsOfBehat\VariadicExtension: ~
+
+  gherkin:
+    filters:
+      tags: "~@todo && ~@cli" # CLI is excluded as it registers an error handler that mutes fatal errors

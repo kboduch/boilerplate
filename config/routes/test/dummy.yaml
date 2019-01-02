@@ -1,0 +1,3 @@
+test_page:
+  path: /testowo-page
+  controller: App\Controller\DummyController::testPageAction
